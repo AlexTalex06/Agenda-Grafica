@@ -9,8 +9,8 @@ public class JFrameEliminar extends JFrame {
     
     private void initComponents() {
         this.setEnabled(true);
-        setSize(400, 200);
-        setTitle("Eliminar Contacto :(");
+        setSize(350, 200);
+        setTitle("Eliminar Persona :(");
         setResizable(false);
         setContentPane(mostrar);
         setLocationRelativeTo(null);
