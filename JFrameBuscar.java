@@ -9,8 +9,8 @@ public class JFrameBuscar extends JFrame {
     
     private void initComponents() {
         this.setEnabled(true);
-        setSize(400, 200);
-        setTitle("Buscar Contacto *w*");
+        setSize(350, 200);
+        setTitle("Buscar persona");
         setResizable(false);
         setContentPane(mostrar);
         setLocationRelativeTo(null);
