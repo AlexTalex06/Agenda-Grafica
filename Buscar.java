@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class Buscar extends JPanel implements ActionListener {
     private JButton btnBuscar;
     private JTextField txtNombre, txtTelefono, txtCorreo, txtFechaCum;
-    Agenda v = new Agenda();
+    Agenda ag = new Agenda();
     
     public Buscar() {
         setLayout(new GridLayout(7, 2));
@@ -39,14 +39,14 @@ public class Buscar extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btnBuscar) {
             if(txtNombre.getText() == null || txtNombre.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debes de colocar el nombre para buscar",
+                JOptionPane.showMessageDialog(null, "Coloca el nombre que deseas buscar",
                         "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 txtNombre.requestFocus();
             } else {
                 String nombre = txtNombre.getText();
-                int n = v.getPersona(nombre);
+                int n = ag.getPersona(nombre);
                 if(n != -2) {
-                    Persona p = v.consultar(n);
+                    Persona p = ag.consultar(n);
                     txtTelefono.setText(p.getTelefono());
                     txtCorreo.setText(p.getCorreo());
                     txtFechaCum.setText(p.getFechaCumple());
