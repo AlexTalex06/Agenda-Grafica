@@ -1,7 +1,7 @@
 import java.util.*;
 public class Agenda
  {
-    static int v = 0;
+    static int ag = 0;
     static ArrayList<Persona> ArrPersona = new ArrayList<Persona>();
     private Persona objPersona;
     
@@ -16,11 +16,11 @@ public class Agenda
         objPersona.setFechaCumple(cumple);
         
         ArrPersona.add(objPersona);
-        v++;
+        ag++;
     }
     
     public int getPersona(String nombre) {
-        for(int x=0; x<v; x++) {
+        for(int x=0; x<ag; x++) {
             if (ArrPersona.get(x).getNombre().equals(nombre)) {
                 return x;
             }
@@ -28,17 +28,17 @@ public class Agenda
         return -2;
     }
     
-    public Persona consultar (int v) {
-        return ArrPersona.get(v);
+    public Persona consultar (int ag) {
+        return ArrPersona.get(ag);
     }
     
-    public void modificar(int v, Persona p) {
-        ArrPersona.set(v, p);
+    public void modificar(int ag, Persona p) {
+        ArrPersona.set(ag, p);
     }
     
-    public void eliminar(int v) {
-        ArrPersona.remove(v);
-        this.v--;
+    public void eliminar(int ag) {
+        ArrPersona.remove(ag);
+        this.ag--;
     }
     
     public ArrayList Datos() {
