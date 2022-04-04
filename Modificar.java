@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class Modificar extends JPanel implements ActionListener {
     private JButton btnBuscar, btnAceptar;
     private JTextField txtNombre, txtTelefono, txtCorreo, txtFechaCum;
-    Agenda v = new Agenda();
+    Agenda ag = new Agenda();
     Persona p;
     String nombre, telefono, correo, fechacumple;
     
@@ -34,33 +34,33 @@ public class Modificar extends JPanel implements ActionListener {
         btnAceptar.addActionListener(this);
         btnBuscar = new JButton("Buscar");
         btnBuscar.addActionListener(this);
+        add(btnGuardar);
         add(btnBuscar);
-        add(btnAceptar);
         
         txtTelefono.setEditable(false);
         txtCorreo.setEditable(false);
         txtFechaCum.setEditable(false);
-        btnAceptar.setEnabled(false);
+        btnGuardar.setEnabled(false);
     }
     
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btnBuscar) {
             if(txtNombre.getText() == null || txtNombre.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debes de colocar el nombre para modificar",
+                JOptionPane.showMessageDialog(null, "Coloca el nombre al que le moodificaras datos",
                         "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 txtNombre.requestFocus();
             } else {
                 nombre = txtNombre.getText();
-                int n = v.getPersona(nombre);
+                int n = ag.getPersona(nombre);
                 if(n != -2) {
-                    Persona p = v.consultar(n);
+                    Persona p = ag.buscar(n);
                     txtTelefono.setText(p.getTelefono());
                     txtCorreo.setText(p.getCorreo());
                     txtFechaCum.setText(p.getFechaCumple());
                     txtTelefono.setEditable(true);
                     txtCorreo.setEditable(true);
                     txtFechaCum.setEditable(true);
-                    btnAceptar.setEnabled(true);
+                    btnGuardar.setEnabled(true);
                 } else {
                     JOptionPane.showMessageDialog(this,
                             "No hay ninguna persona registrada con ese nombre",
@@ -69,19 +69,19 @@ public class Modificar extends JPanel implements ActionListener {
                 }
             }
         }
-        if(e.getSource() == btnAceptar) {
+        if(e.getSource() == btnGuardar) {
             if(txtTelefono.getText() == null || txtNombre.getText().isEmpty() || txtCorreo.getText() == null || txtCorreo.getText().isEmpty() || txtFechaCum.getText() == null || txtFechaCum.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Todos los espacios deben estar completos para poder guardar",
+                JOptionPane.showMessageDialog(null, "TODOS los espacios deben estar completos para guardar",
                         "Aviso", JOptionPane.INFORMATION_MESSAGE);
             } else {
                   nombre = txtNombre.getText();
-                  int n = v.getPersona(nombre);
+                  int n = ag.getPersona(nombre);
                   nombre = txtNombre.getText();
                   telefono = txtTelefono.getText();
                   correo = txtCorreo.getText();
                   fechacumple = txtFechaCum.getText();
                   setP(new Persona(nombre, telefono, correo, fechacumple));
-                  v.modificar(n, p);
+                  ag.modificar(n, p);
                   JOptionPane.showMessageDialog(null, "Se editaron los datos de la persona",
                         "Aviso", JOptionPane.INFORMATION_MESSAGE);
                   txtNombre.setText(null);
@@ -92,7 +92,7 @@ public class Modificar extends JPanel implements ActionListener {
                   txtTelefono.setEditable(false);
                   txtCorreo.setEditable(false);
                   txtFechaCum.setEditable(false);
-                  btnAceptar.setEnabled(true);
+                  btnGuadar.setEnabled(true);
           }
       }
     }
