@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class Alta extends JPanel implements ActionListener {
     private JButton btnBuscar, btnGuardar;
     private JTextField txtNombre, txtTelefono, txtCorreo, txtFechaCum;
-    Agenda v = new Agenda();
+    Agenda ag = new Agenda();
     
     public Alta() {
         setLayout(new GridLayout(7, 2));
@@ -32,8 +32,8 @@ public class Alta extends JPanel implements ActionListener {
         btnGuardar.addActionListener(this);
         btnBuscar = new JButton("Buscar");
         btnBuscar.addActionListener(this);
-        add(btnBuscar);
         add(btnGuardar);
+        add(btnBuscar);
         
         txtTelefono.setEditable(false);
         txtCorreo.setEditable(false);
@@ -44,12 +44,12 @@ public class Alta extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btnBuscar) {
             if(txtNombre.getText() == null || txtNombre.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debes de colocar el nombre para registrar",
+                JOptionPane.showMessageDialog(null, "Ingresa un nombre para dar de alta",
                         "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 txtNombre.requestFocus();
             } else {
                 String nombre = txtNombre.getText();
-                int n = v.getPersona(nombre);
+                int n = ag.getPersona(nombre);
                 if(n != -2) {
                     JOptionPane.showMessageDialog(this,
                             "El nombre ya esta registrado en la agenda",
@@ -67,11 +67,11 @@ public class Alta extends JPanel implements ActionListener {
         }
         if(e.getSource() == btnGuardar) {
             if(txtTelefono.getText() == null || txtNombre.getText().isEmpty() || txtCorreo.getText() == null || txtCorreo.getText().isEmpty() || txtFechaCum.getText() == null || txtFechaCum.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debes llenar todos los espacios para poder guardar",
+                JOptionPane.showMessageDialog(null, "TODOS los espacios deben estar completos para guardar",
                         "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 txtTelefono.requestFocus();
             } else {
-                  v.agregar(txtNombre.getText(), txtTelefono.getText(), txtCorreo.getText(), txtFechaCum.getText());
+                  ag.agregar(txtNombre.getText(), txtTelefono.getText(), txtCorreo.getText(), txtFechaCum.getText());
                   JOptionPane.showMessageDialog(null, "Los Datos se estan guardando",
                         "Aviso", JOptionPane.INFORMATION_MESSAGE);
                   txtNombre.setText(null);
