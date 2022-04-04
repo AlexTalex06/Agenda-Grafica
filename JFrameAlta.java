@@ -8,7 +8,7 @@ public class JFrameAlta extends JFrame {
     
     private void initComponents() {
         this.setEnabled(true);
-        setSize(400, 200);
+        setSize(350, 200);
         setTitle("Registrar Persona");
         setResizable(false);
         setContentPane(mostrar);
