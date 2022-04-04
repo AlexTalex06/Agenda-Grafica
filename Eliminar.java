@@ -4,7 +4,7 @@ import java.awt.event.*;
 public class Eliminar extends JPanel implements ActionListener {
     private JButton btnBuscar, btnEliminar;
     private JTextField txtNombre, txtTelefono, txtCorreo, txtFechaCum;
-    Agenda v = new Agenda();
+    Agenda ag = new Agenda();
     public Eliminar() {
         setLayout(new GridLayout(7, 2));
         JLabel lblNombre = new JLabel("Nombre o Apodo: ", JLabel.RIGHT);
@@ -43,14 +43,14 @@ public class Eliminar extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btnBuscar) {
             if(txtNombre.getText() == null || txtNombre.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debes de colocar el nombre para eliminar",
+                JOptionPane.showMessageDialog(null, "Coloca el nombre que deseas eliminar de la agenda",
                         "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 txtNombre.requestFocus();
             } else {
                 String nombre = txtNombre.getText();
-                int n = v.getPersona(nombre);
+                int n = ag.getPersona(nombre);
                 if(n != -2) {
-                    Persona p = v.consultar(n);
+                    Persona p = ag.buscar(n);
                     txtTelefono.setText(p.getTelefono());
                     txtCorreo.setText(p.getCorreo());
                     txtFechaCum.setText(p.getFechaCumple());
@@ -67,8 +67,8 @@ public class Eliminar extends JPanel implements ActionListener {
         
         if(e.getSource() == btnEliminar) {
             String nombre = txtNombre.getText();
-            int n = v.getPersona(nombre);
-            v.eliminar(n);
+            int n = ag.getPersona(nombre);
+            ag.eliminar(n);
             JOptionPane.showMessageDialog(null, "La persona ha sido eliminada de la agenda",
                     "Aviso", JOptionPane.INFORMATION_MESSAGE);
             txtNombre.requestFocus();
