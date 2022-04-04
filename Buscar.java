@@ -46,7 +46,7 @@ public class Buscar extends JPanel implements ActionListener {
                 String nombre = txtNombre.getText();
                 int n = ag.getPersona(nombre);
                 if(n != -2) {
-                    Persona p = ag.consultar(n);
+                    Persona p = ag.buscar(n);
                     txtTelefono.setText(p.getTelefono());
                     txtCorreo.setText(p.getCorreo());
                     txtFechaCum.setText(p.getFechaCumple());
