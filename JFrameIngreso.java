@@ -7,7 +7,7 @@ public class JFrameIngreso  extends JFrame{
     }
     private void initComponents() {
         this.setEnabled(true);
-        setSize(400, 200);
+        setSize(350, 200);
         setTitle("Usuario y Clave de acceso");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
