@@ -8,8 +8,8 @@ public class JFrameModificar extends JFrame {
     
     private void initComponents() {
         this.setEnabled(true);
-        setSize(400, 200);
-        setTitle("Modificar Contacto :s");
+        setSize(350, 200);
+        setTitle("Modificar Persona");
         setResizable(false);
         setContentPane(mostrar);
         setLocationRelativeTo(null);
