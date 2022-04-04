@@ -28,7 +28,7 @@ public class Agenda
         return -2;
     }
     
-    public Persona consultar (int ag) {
+    public Persona buscar (int ag) {
         return ArrPersona.get(ag);
     }
     
