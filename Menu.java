@@ -5,13 +5,13 @@ public class Menu extends JPanel implements ActionListener {
     private JButton btnAlta, btnBuscar, btnEliminar, btnModificar, btnSalir;
     
     public Menu() {
-        btnAlta = new JButton("Registrar Contacto");
+        btnAlta = new JButton("Registrar nuevo contacto");
         btnAlta.addActionListener(this);
-        btnBuscar = new JButton("Buscar Contacto");
+        btnBuscar = new JButton("Buscar Persona");
         btnBuscar.addActionListener(this);
-        btnEliminar = new JButton("Eliminar Contacto");
+        btnEliminar = new JButton("Eliminar Persona");
         btnEliminar.addActionListener(this);
-        btnModificar = new JButton("Modificar Contacto");
+        btnModificar = new JButton("Modificar Datos");
         btnModificar.addActionListener(this);
         btnSalir = new JButton("Salir");
         btnSalir.addActionListener(this);
