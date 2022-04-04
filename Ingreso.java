@@ -37,7 +37,7 @@ public class Ingreso extends JPanel implements ActionListener {
                 txtUsuario.requestFocus();
             } else {
                 if(usuario.equals("ingeniero") && contra.equals("1234")) {
-                    JOptionPane.showMessageDialog(null, "Bienvenido Administrador :D");
+                    JOptionPane.showMessageDialog(null, "Bienvenido Administrador");
                     JFrameMenu mostrar = new JFrameMenu();
                 } else {
                     JOptionPane.showMessageDialog(null, "El usuario o la clave es incorrecta");
