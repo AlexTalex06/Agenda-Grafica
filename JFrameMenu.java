@@ -9,8 +9,8 @@ public class JFrameMenu extends JFrame{
     
     private void initComponents() {
         this.setEnabled(true);
-        setSize(400, 200);
-        setTitle("Menu");
+        setSize(350, 200);
+        setTitle("Pantalla de inicio");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setContentPane(mostrar);
